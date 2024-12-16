@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+</head>
+
+<body>
+  <section id="sidebar">
+    <div class="header">
+      <div>
+        <h1 class="title">CSS UnCooKeD</h1>
+      </div>
+      <div id="level-counter">
+        <span class="arrow left disabled"> <span class="triangle"></span> </span>
+        <span id="level-indicator"> Level 1 of 8 </span>
+        <span class="arrow right"> <span class="triangle"></span> </span>
+      </div>
+    </div>
+    <p id="instructions"></p>
+    <div class="tooltip" style="top: 131.333px; left: 191.615px; display: none;">
+      <p>Aligns flex items along the main axis.</p><code>flex-start (default)</code> <code>flex-end</code>
+      <code>center</code> <code>space-between</code> <code>space-around</code> <code>space-evenly</code>
+    </div>
+    </p>
+    <div id="editor">
+      <div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</div>
+      <div id="css">
+        <pre id="before">#foreground { <br>  display: flex; </pre>
+        <div id="fgCode">
+          <textarea id="code" autofocus="" autocapitalize="none" spellcheck="false"></textarea>
+        </div>
+        <pre id="after">}</pre>
+
+        <div class="circleStyle">
+          <pre id="before"><br>.<span>red</span> { <br></pre>
+          <div id="cirCode">
+
+          </div>
+          <pre id="after">}</pre>
+        </div>
+
+      </div>
+      <button id="next" class="translate disabled">Next</button>
+    </div>
+  </section>
+  <section id="view">
+    <div id="board">
+      <div id="foreground"> </div>
+      <div id="background"> </div>
+    </div>
+  </section>
+  <script type="module" src="src/app.js"></script>
+</body>
+
+</html>
