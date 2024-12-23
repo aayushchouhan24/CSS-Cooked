@@ -12,10 +12,9 @@
 
   --primary-color-30: rgba(1, 56, 123, 0.3);
 
-  --text-color: rgb(255, 255, 255);
+  --text-color: #AAD1FF;
 
-  --button-hover-background: #f12d22;
-
+  --helvetica: 'Helvetica', sans-serif;
   --font-family-cursive: "Forangeoka One", cursive;
   --font-family-monospace: "Source Code Pro", monospace;
 }
@@ -32,7 +31,8 @@ body {
   width: 100%;
   min-height: 100%;
   background-color: var(--primary-dark);
-  font-family: 'Helvetica';
+  font-family: var(--helvetica);
+  color: white;
 }
 
 main {
@@ -40,7 +40,6 @@ main {
   display: flex;
   min-width: 600px;
   margin: 0;
-  color: var(--text-color);
 }
 
 .hidden {
@@ -80,7 +79,6 @@ code {
   font-weight: 900;
   font-size: 14px;
   margin-right: 2px;
-  color: var(--text-color);
   white-space: nowrap;
 }
 
@@ -112,11 +110,12 @@ pre {
   font-family: var(--font-family-monospace);
   font-size: 16px;
   line-height: 1.5;
-  color: #777;
+  color: var(--text-color);
 }
 
 pre {
   padding-left: 16px;
+  opacity: 0.6;
 }
 
 #css {
@@ -134,6 +133,7 @@ pre {
   text-align: right;
   color: var(--text-color);
   user-select: none;
+  opacity: 0.7;
 }
 
 #code {
@@ -149,7 +149,7 @@ pre {
   overflow: auto;
   background: transparent;
   background: #0000002d;
-  color: var(--text-color);
+  color: #AAD1FF;
 }
 
 #level-counter {
@@ -273,43 +273,33 @@ pre {
 }
 
 
-
-button {
-  display: inline-block;
-  padding: 0.4em 0.8em;
-  background-color: var(--secondary-color);
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  line-height: 24px;
-  color: var(--text-color);
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-button:active {
-  outline: none;
-}
-
-button:not(.disabled):hover {
-  background-color: var(--button-hover-background);
-}
-
 #next {
   position: absolute;
   right: 1em;
   bottom: 1em;
-  padding-top: 0.3em;
-}
+  padding: 0.4em 0.8em;
+  background-color: var(--primary-dark);
+  filter: brightness(2.1);
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  user-select: none;
+  color: white;
+  font-family: var(--helvetica);
+} 
 
 #next.disabled {
   opacity: 0.5;
 }
+
+#next:active {
+  outline: none;
+}
+
+#next:not(.disabled):hover {
+  filter: brightness(1.5);
+}
+
 
 #board {
   position: sticky;
