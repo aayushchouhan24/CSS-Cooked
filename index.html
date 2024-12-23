@@ -9,50 +9,73 @@
 </head>
 
 <body>
-  <section id="sidebar">
-    <div class="header">
-      <div>
-        <h1 class="title">CSS UnCooKeD</h1>
-      </div>
-      <div id="level-counter">
-        <span class="arrow left disabled"> <span class="triangle"></span> </span>
-        <span id="level-indicator"> Level 1 of 8 </span>
-        <span class="arrow right"> <span class="triangle"></span> </span>
-      </div>
-    </div>
-    <p id="instructions"></p>
-    <div class="tooltip" style="top: 131.333px; left: 191.615px; display: none;">
-      <p>Aligns flex items along the main axis.</p><code>flex-start (default)</code> <code>flex-end</code>
-      <code>center</code> <code>space-between</code> <code>space-around</code> <code>space-evenly</code>
-    </div>
-    </p>
-    <div id="editor">
-      <div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</div>
-      <div id="css">
-        <pre id="before">#foreground { <br>  display: flex; </pre>
-        <div id="fgCode">
-          <textarea id="code" autofocus="" autocapitalize="none" spellcheck="false"></textarea>
+  <main>
+
+
+    <section id="sidebar">
+      <div class="header">
+        <div>
+          <h1 class="title">Flexbox Fish Frenzy</h1>
         </div>
-        <pre id="after">}</pre>
+        <div id="level-counter">
 
-        <div class="circleStyle">
-          <pre id="before"><br>.<span>red</span> { <br></pre>
-          <div id="cirCode">
+          <div class="controls">
+            <span class="arrow left disabled">
+              <svg width="11" height="11" viewBox="0 0 12 18" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M9.41224 17.3727L0.763387 10.1814C0.564562 10.016 0.425387 9.85072 0.345858 9.6854C0.266328 9.52008 0.226562 9.33823 0.226562 9.13985C0.226563 8.94147 0.266328 8.75962 0.345858 8.5943C0.425387 8.42898 0.564562 8.26366 0.763387 8.09834L9.41224 0.90695C9.53154 0.807758 9.66117 0.733695 9.80114 0.684761C9.94112 0.635826 10.0898 0.610698 10.2473 0.609375C10.5654 0.609375 10.8438 0.700631 11.0824 0.883144C11.321 1.06566 11.4403 1.30504 11.4403 1.60129V16.6784C11.4403 16.976 11.321 17.216 11.0824 17.3985C10.8438 17.5811 10.5654 17.6716 10.2473 17.6703C10.1678 17.6703 9.88942 17.5711 9.41224 17.3727Z" />
+              </svg>
 
+            </span>
+
+            <span id="level-indicator"> Level 1 of 8 </span>
+
+            <span class="arrow right">
+              <svg width="11" height="11" viewBox="0 0 13 18" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M2.87291 0.908501L11.5218 8.09989C11.7206 8.26521 11.8598 8.43053 11.9393 8.59585C12.0188 8.76117 12.0586 8.94302 12.0586 9.1414C12.0586 9.33978 12.0188 9.52163 11.9393 9.68695C11.8598 9.85227 11.7206 10.0176 11.5218 10.1829L2.87291 17.3743C2.75362 17.4735 2.62399 17.5476 2.48401 17.5965C2.34404 17.6454 2.19532 17.6706 2.03785 17.6719C1.71973 17.6719 1.44138 17.5806 1.20279 17.3981C0.964198 17.2156 0.844905 16.9762 0.844905 16.68L0.844905 1.60284C0.844905 1.30527 0.964198 1.06522 1.20279 0.88271C1.44138 0.700197 1.71973 0.609604 2.03785 0.610926C2.11738 0.610926 2.39573 0.710117 2.87291 0.908501Z" />
+              </svg> </span>
+          </div>
+          <div id="levelsWrapper" class="hidden">
+            <div id="levels"> </div>
+            <div id="reset">Reset</div>
+          </div>
+        </div>
+      </div>
+      <p id="instructions"></p>
+      <div class="tooltip" style="top: 131.333px; left: 191.615px; display: none;">
+        <p>Aligns flex items along the main axis.</p><code>flex-start (default)</code> <code>flex-end</code>
+        <code>center</code> <code>space-between</code> <code>space-around</code> <code>space-evenly</code>
+      </div>
+      </p>
+      <div id="editor">
+        <div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</div>
+        <div id="css">
+          <pre id="before">#foreground { <br>  <span id="defaultCss"></span> </pre>
+          <div id="fgCode">
+            <textarea id="code" autofocus="" autocapitalize="none" spellcheck="false"></textarea>
           </div>
           <pre id="after">}</pre>
-        </div>
 
+          <div class="fishStyle">
+            <pre id="before"><br>.<span id="colorClass">red</span> { <br></pre>
+            <div id="cirCode">
+
+            </div>
+            <pre id="after">}</pre>
+          </div>
+
+        </div>
+        <button id="next" class="translate disabled">Next</button>
       </div>
-      <button id="next" class="translate disabled">Next</button>
-    </div>
-  </section>
-  <section id="view">
-    <div id="board">
-      <div id="foreground"> </div>
-      <div id="background"> </div>
-    </div>
-  </section>
+    </section>
+    <section id="view">
+      <div id="board">
+        <div id="foreground"> </div>
+        <div id="background"> </div>
+      </div>
+    </section>
+  </main>
   <script type="module" src="src/app.js"></script>
 </body>
 
