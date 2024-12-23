@@ -85,13 +85,14 @@ function loadLevel(level) {
         foreground.appendChild(fish)
         background.appendChild(pot)
     })
+    setCss('pot', level, level.style)
+    setCss('fish', level, code.value)
 
     defaultCss.textContent = level.deafultCss.split(';').join(';\n  ').trim()
 
     if (level.styleMode != 0) colorClass.textContent = level.styleMode
 
 
-    setCss('pot', level, level.style)
 
     localStorage.setItem('currentLvl', level.id - 1)
 
