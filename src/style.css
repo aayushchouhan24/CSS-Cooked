@@ -338,7 +338,7 @@ button:not(.disabled):hover {
   z-index: 10;
   border-radius: 10px;
   background-color: var(--secondary-color);
-  background-image: url('bg.png');
+  background-image: url('/bg.png');
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -363,31 +363,31 @@ button:not(.disabled):hover {
   width: 16%;
   height: 16%;
   margin: 2%;
-  background-image: url('fish/blue.png');
+  background-image: url('/fish/blue.png');
   background-size: 80% 45%;
 }
 
 .fish.orange {
-  background-image: url('fish/orange.png');
+  background-image: url('/fish/orange.png');
 }
 
 .fish.purple {
-  background-image: url('fish/purple.png');
+  background-image: url('/fish/purple.png');
 }
 
 .pot {
   width: 19%;
   height: 19%;
   margin: 0.5%;
-  background-image: url('pot/blue.png');
+  background-image: url('/pot/blue.png');
 }
 
 .pot.orange {
-  background-image: url('pot/orange.png');
+  background-image: url('/pot/orange.png');
 }
 
 .pot.purple {
-  background-image: url('pot/purple.png');
+  background-image: url('/pot/purple.png');
 }
 
 
