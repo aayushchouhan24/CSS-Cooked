@@ -29,7 +29,6 @@ html,
 body {
   height: 100%;
   width: 100%;
-  min-height: 100%;
   background-color: var(--primary-dark);
   font-family: var(--helvetica);
   color: white;
@@ -47,7 +46,7 @@ main {
 }
 
 #sidebar {
-  width: 50%;
+  width: 100%;
   margin-right: 2em;
   min-width: 300px;
   font-size: 15px;
@@ -61,6 +60,7 @@ main {
 }
 
 .title {
+  text-align: center;
   margin: 0.5rem 0 0;
   text-transform: uppercase;
   font-family: var(--font-family-cursive);
@@ -158,7 +158,6 @@ li {
 #editor,
 pre {
   font-family: var(--font-family-monospace);
-  font-size: 16px;
   line-height: 1.5;
   color: var(--text-color);
 }
@@ -176,6 +175,7 @@ pre {
   padding: 10px 0px 10px 0;
   border-radius: 4px;
   overflow: hidden;
+  font-size: 16px;
 }
 
 .line-numbers {
@@ -194,7 +194,6 @@ pre {
   padding: 0 32px;
   border: none;
   font-family: var(--font-family-monospace);
-  font-size: 16px;
   outline: none;
   resize: none;
   overflow: auto;
@@ -356,15 +355,20 @@ pre {
 }
 
 
+#view {
+  display: flex;
+  justify-content: center;
+}
+
 #board {
-  position: sticky;
-  top: 0;
+  position: relative;
   width: 50vw;
   height: 50vw;
   min-width: 300px;
   min-height: 300px;
-  max-width: 100vh;
-  max-height: 100vh;
+  max-width: calc(100vh - 6em);
+  max-height: calc(100vh - 6em);
+  ;
   overflow: hidden;
 }
 
@@ -381,11 +385,6 @@ pre {
 
 #background {
   z-index: 10;
-  border-radius: 10px;
-
-  background-size: 110%;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 #board video {
@@ -393,6 +392,7 @@ pre {
   height: 100%;
   object-fit: cover;
   background-color: var(--secondary-color);
+  border-radius: 10px;
 }
 
 #foreground {
@@ -453,9 +453,12 @@ pre {
   }
 
   main,
-  #sidebar {
+  #sidebar,
+  #css,
+  code {
     font-size: 13px;
   }
+
 
   #sidebar {
     width: 100%;

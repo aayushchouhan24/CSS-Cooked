@@ -36,10 +36,12 @@ levelIndicator.addEventListener('click', () => {
 })
 
 document.addEventListener('click', (e) => {
-    if (!e.target.className.includes('inLevelSelector')) levelsWrapper.classList.add('hidden')
-    if (e.target.className.includes('help')) loadTooltip(e.target)
-    else tooltip.classList.add('hidden')
-    if (e.target.tagName + e.target.parentElement.className === 'CODEopts') updateProperty(pName, e.target.innerText.replace(' (default)', ''))
+    if (e.target?.className.includes) {
+        if (!e.target?.className.includes('inLevelSelector')) levelsWrapper.classList.add('hidden')
+        if (e.target?.className.includes('help')) loadTooltip(e.target)
+        else tooltip?.classList.add('hidden')
+    }
+    if (e.target.tagName + e.target.parentElement?.className === 'CODEopts') updateProperty(pName, e.target.innerText.replace(' (default)', ''))
 })
 
 levels.forEach((level) => {
