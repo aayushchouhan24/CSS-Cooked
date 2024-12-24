@@ -28,7 +28,7 @@
 
             </span>
 
-            <span id="level-indicator"> Level 1 of 8 </span>
+            <span id="level-indicator" class="inLevelSelector"> Level 1 of 8 </span>
 
             <span class="arrow right">
               <svg width="11" height="11" viewBox="0 0 13 18" xmlns="http://www.w3.org/2000/svg">
@@ -36,16 +36,14 @@
                   d="M2.87291 0.908501L11.5218 8.09989C11.7206 8.26521 11.8598 8.43053 11.9393 8.59585C12.0188 8.76117 12.0586 8.94302 12.0586 9.1414C12.0586 9.33978 12.0188 9.52163 11.9393 9.68695C11.8598 9.85227 11.7206 10.0176 11.5218 10.1829L2.87291 17.3743C2.75362 17.4735 2.62399 17.5476 2.48401 17.5965C2.34404 17.6454 2.19532 17.6706 2.03785 17.6719C1.71973 17.6719 1.44138 17.5806 1.20279 17.3981C0.964198 17.2156 0.844905 16.9762 0.844905 16.68L0.844905 1.60284C0.844905 1.30527 0.964198 1.06522 1.20279 0.88271C1.44138 0.700197 1.71973 0.609604 2.03785 0.610926C2.11738 0.610926 2.39573 0.710117 2.87291 0.908501Z" />
               </svg> </span>
           </div>
-          <div id="levelsWrapper" class="hidden">
-            <div id="levels"> </div>
+          <div id="levelsWrapper" class="hidden inLevelSelector">
+            <div id="levels" class="inLevelSelector"> </div>
             <div id="reset">Reset</div>
           </div>
         </div>
       </div>
       <p id="instructions"></p>
-      <div class="tooltip" style="top: 131.333px; left: 191.615px; display: none;">
-        <p>Aligns flex items along the main axis.</p><code>flex-start (default)</code> <code>flex-end</code>
-        <code>center</code> <code>space-between</code> <code>space-around</code> <code>space-evenly</code>
+      <div class="tooltip hidden"></div>
       </div>
       </p>
       <div id="editor">

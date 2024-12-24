@@ -1,5 +1,5 @@
 import './style.css'
-import { levels } from './levels'
+import { levels, tooltips } from './data'
 
 var currentLvl = Number(localStorage.getItem('currentLvl')) || 0, isCleaorange = false
 
@@ -27,11 +27,20 @@ const colorClass = document.querySelector('#colorClass')
 
 const defaultCss = document.querySelector('#defaultCss')
 
+const tooltip = document.querySelector('.tooltip')
+
+let pName = 'justify-content'
 
 levelIndicator.addEventListener('click', () => {
     levelsWrapper.classList.toggle('hidden')
 })
 
+document.addEventListener('click', (e) => {
+    if (!e.target.className.includes('inLevelSelector')) levelsWrapper.classList.add('hidden')
+    if (e.target.className.includes('help')) loadTooltip(e.target)
+    else tooltip.classList.add('hidden')
+    if (e.target.tagName + e.target.parentElement.className === 'CODEopts') updateProperty(pName, e.target.innerText.replace(' (default)', ''))
+})
 
 levels.forEach((level) => {
     const button = document.createElement('span')
@@ -39,7 +48,6 @@ levels.forEach((level) => {
     button.dataset.level = level.id;
 
     (level.id == currentLvl + 1) && button.classList.add('active');
-
 
     (localStorage.getItem(`level-${level.id}-cleared`)) && button.classList.add('cleared')
 
@@ -49,6 +57,16 @@ levels.forEach((level) => {
     })
     levelsContainer.appendChild(button)
 })
+
+function loadTooltip(elem) {
+    pName = elem.innerText
+    tooltip.innerHTML = tooltips[pName]
+    tooltip.classList.toggle('hidden')
+    const rect = elem.getBoundingClientRect()
+    tooltip.style.left = rect.left + 'px'
+    tooltip.style.top = (rect.bottom + 15) + 'px'
+}
+
 
 function loadLevel(level) {
     clearCss()
@@ -153,6 +171,38 @@ function check() {
 
     return isCleaorange
 }
+
+
+function updateProperty(pName, pValue) {
+    if (pValue === '<integer> (... -1, 0 (default), 1, ...)') pValue = '0'
+
+    const tokens = code.value.trim().split(/[\n:;]+/).filter(Boolean)
+    const keywords = new Set(Object.keys(tooltips))
+    let content = '', filled = false
+
+    tokens.forEach((token, i) => {
+        const trimmedToken = token.trim()
+        if (!keywords.has(trimmedToken)) return
+
+        if (trimmedToken === pName && !filled) {
+            content += `${content ? '\n' : ''}${trimmedToken}: ${pValue};`
+            filled = true
+        } else {
+            const nextToken = tokens[i + 1]?.trim() || ''
+            const val = keywords.has(nextToken) ? '' : nextToken
+            content += `${content ? '\n' : ''}${trimmedToken}: ${val};`
+        }
+    })
+
+    if (!filled) {
+        content += `${content ? '\n' : ''}${pName}: ${pValue};`
+    }
+
+    code.value = content
+    code.focus()
+}
+
+
 
 left.addEventListener('click', () => {
     if (currentLvl === 0) return

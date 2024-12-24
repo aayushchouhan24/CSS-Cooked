@@ -4,6 +4,7 @@
   font-style: normal;
 }
 
+
 :root {
 
   --primary-color: #0f233b;
@@ -15,13 +16,12 @@
   --text-color: #AAD1FF;
 
   --helvetica: 'Helvetica', sans-serif;
-  --font-family-cursive: "Forangeoka One", cursive;
+  --font-family-cursive: "Forangeoka One", "Fredoka", cursive;
   --font-family-monospace: "Source Code Pro", monospace;
 }
 
 * {
   margin: 0%;
-  padding: 0%;
   box-sizing: border-box;
 }
 
@@ -67,25 +67,6 @@ main {
   font-size: 28px;
 }
 
-pre {
-  margin: 0;
-}
-
-code {
-  padding: 2px 6px;
-  border: 1px solid var(--secondary-color);
-  border-radius: 3px;
-  font-family: var(--font-family-monospace);
-  font-weight: 900;
-  font-size: 14px;
-  margin-right: 2px;
-  white-space: nowrap;
-}
-
-li {
-  line-height: 1.8;
-}
-
 
 #instructions {
   padding-top: 1rem;
@@ -97,6 +78,75 @@ li {
   margin: 0;
   padding-bottom: 1em;
 }
+
+
+code {
+  padding: 2px 6px;
+  background-color: var(--primary-color-30);
+  filter: brightness(2);
+  font-family: var(--font-family-monospace);
+  font-weight: 900;
+  font-size: 14px;
+  margin-right: 2px;
+  white-space: nowrap;
+}
+
+code.help {
+  cursor: pointer;
+  border-bottom: 1px solid var(--text-color);
+}
+
+code.help:hover {
+  filter: brightness(2.5);
+}
+
+.tooltip {
+  position: absolute;
+  max-width: 350px;
+  padding: 1em 1em;
+  background-color: var(--secondary-color);
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 1.5;
+  z-index: 60;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 12px;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid var(--secondary-color);
+}
+
+.tooltip .opts {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.tooltip code {
+  cursor: pointer;
+  filter: brightness(1);
+  font-size: 12px;
+}
+
+.tooltip code:hover {
+  filter: brightness(1.5);
+}
+
+.tooltip p {
+  padding-bottom: .5em;
+}
+
+li {
+  line-height: 1.8;
+}
+
 
 #editor {
   position: relative;
@@ -114,6 +164,7 @@ pre {
 }
 
 pre {
+  margin: 0;
   padding-left: 16px;
   opacity: 0.6;
 }
@@ -164,14 +215,18 @@ pre {
   border-radius: 5px;
   overflow: hidden;
   background-color: var(--secondary-color);
-  padding: 7px;
+  padding: 0px 7px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 #level-indicator {
-  margin: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 150px;
   text-align: center;
   cursor: pointer;
   color: var(--primary-color);
@@ -286,7 +341,7 @@ pre {
   user-select: none;
   color: white;
   font-family: var(--helvetica);
-} 
+}
 
 #next.disabled {
   opacity: 0.5;
