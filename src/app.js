@@ -176,7 +176,7 @@ function check() {
 
 
 function updateProperty(pName, pValue) {
-    if (pValue === '<integer> (... -1, 0 (default), 1, ...)') pValue = '0'
+    if (pValue.includes('integer')) pValue = '0'
 
     const tokens = code.value.trim().split(/[\n:;]+/).filter(Boolean)
     const keywords = new Set(Object.keys(tooltips))
