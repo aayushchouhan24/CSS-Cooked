@@ -462,6 +462,9 @@ pre {
     font-size: 13px;
   }
 
+  #code {
+    font-size: 12px;
+  }
 
   #sidebar {
     width: 100%;
@@ -480,7 +483,7 @@ pre {
 
   #instructions code {
     pointer-events: auto;
-    font-size: 12px;
+    font-size: 10px
   }
 
   #instructions.collapsed ul {

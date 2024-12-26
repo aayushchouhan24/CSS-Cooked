@@ -208,7 +208,6 @@ function updateProperty(pName, pValue) {
     }
 
     code.value = content
-    code.focus()
 }
 
 
