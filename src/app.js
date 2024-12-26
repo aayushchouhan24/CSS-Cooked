@@ -42,7 +42,14 @@ document.addEventListener('click', (e) => {
         else tooltip?.classList.add('hidden')
     }
     if (e.target.tagName + e.target.parentElement?.className === 'CODEopts') updateProperty(pName, e.target.innerText.replace(' (default)', ''))
+
+    if (e.target.id === 'instructions') {
+        instructions.classList.toggle('collapsed')
+        localStorage.setItem('isInstructionsCollapsed', !instructions.classList.contains('collapsed') ? '' : true)
+    }
 })
+instructions.classList.toggle('collapsed',localStorage.getItem('isInstructionsCollapsed'))
+
 
 levels.forEach((level) => {
     const button = document.createElement('span')
@@ -65,8 +72,8 @@ function loadTooltip(elem) {
     tooltip.innerHTML = tooltips[pName]
     tooltip.classList.toggle('hidden')
     const rect = elem.getBoundingClientRect()
-    tooltip.style.left = rect.left + 'px'
-    tooltip.style.top = (rect.bottom + 15) + 'px'
+    tooltip.style.left = scrollX + rect.left + 'px'
+    tooltip.style.top = scrollY + (rect.bottom + 15) + 'px'
 }
 
 

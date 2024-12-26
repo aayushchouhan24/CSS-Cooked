@@ -16,7 +16,6 @@
   --text-color: #AAD1FF;
 
   --helvetica: 'Helvetica', sans-serif;
-  --font-family-cursive: "Forangeoka One", "Fredoka", cursive;
   --font-family-monospace: "Source Code Pro", monospace;
 }
 
@@ -63,7 +62,6 @@ main {
   text-align: center;
   margin: 0.5rem 0 0;
   text-transform: uppercase;
-  font-family: var(--font-family-cursive);
   font-size: 28px;
 }
 
@@ -79,6 +77,9 @@ main {
   padding-bottom: 1em;
 }
 
+#instructionsWrapper div {
+  display: none;
+}
 
 code {
   padding: 2px 6px;
@@ -445,6 +446,8 @@ pre {
   display: none;
 }
 
+
+
 @media only screen and (max-width: 767px) {
   main {
     flex-direction: column-reverse;
@@ -462,10 +465,65 @@ pre {
 
   #sidebar {
     width: 100%;
+    margin-right: 0;
   }
 
   #background {
     border-radius: 0 0 10px 10px;
+  }
+
+  #instructions {
+    pointer-events: none;
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  #instructions code {
+    pointer-events: auto;
+    font-size: 12px;
+  }
+
+  #instructions.collapsed ul {
+    display: none;
+  }
+
+  #instructions.collapsed code {
+    display: none;
+  }
+
+  #instructions::after {
+    pointer-events: all;
+    content: 'Hide Instructions';
+    position: absolute;
+    display: block;
+    right: 50%;
+    transform: translateX(50%);
+    border-radius: 4px;
+    padding: 3px 5px;
+    font-size: 12px;
+    background-color: var(--secondary-color);
+    width: 95%;
+    text-align: center;
+    transition: all 0.3s;
+    color: var(--primary-color);
+    font-weight: 600;
+  }
+
+
+
+  #instructions.collapsed::after {
+    content: 'Show Instructions';
+  }
+
+  #instructions.collapsed p:not(:first-of-type) {
+    display: none;
+  }
+
+  #instructions.collapsed p {
+    height: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .header {
